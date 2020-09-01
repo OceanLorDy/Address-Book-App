@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "address-book-app"
+    }
+  },
+  "defaultProject": "address-book-app",
+  "cli": {
+    "analytics": "fef10761-e752-48d2-b665-89d361ccbbed"
+  }
 }

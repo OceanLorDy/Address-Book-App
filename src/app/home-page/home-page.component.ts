@@ -11,48 +11,47 @@ import { identifierModuleUrl } from '@angular/compiler';
 })
 export class HomePageComponent implements OnInit {
 
-  modalRef: BsModalref;
+  modalRef: BsModalRef;
   store = contactStore;
   edit: boolean;
   contacts: any[] = [];
   selectedContact: any = <any>{};
-  constructor() { 
+  constructor(
     private modalService: BsModalService,
-    private contactsService: ContactsService
-  } { }
+    private contactsService: ContactsService) { }
 
-  openModal(addTemplate: TemplateRed<any>){
+  openModal(addTemplate: TemplateRef<any>) {
     this.modalRef = this.modalService.show(addTemplate);
   }
 
   openEditModal(editTemplate: TemplateRef<any>, contact) {
-    this.selectedContact= contact;
+    this.selectedContact = contact;
     this.modalRef = this.modalService.show(editTemplate);
   }
 
   closeModal() {
-    this.modalRed.hide();
+    this.modalRef.hide();
     this.selectedContact = {};
   }
 
   ngOnInit() {
     this.contactsService.getContacts()
-    .subscribe(res => {
-      this.StorageEvent.setContacts(res);
-    })
+      .subscribe(res => {
+        this.store.setContacts(res);
+      })
   }
 
   deleteContact(id) {
     this.contactsService.deleteContact(id)
-    .subscribe(res => {
-      this.getContacts();
-    })
+      .subscribe(res => {
+        this.getContacts();
+      })
   }
 
   getContacts() {
     this.contactsService.getContacts()
-    .subscribe(res => {
-      this.StorageEvent.setContacts(res);
-    })
+      .subscribe(res => {
+        this.store.setContacts(res);
+      })
   }
 }
