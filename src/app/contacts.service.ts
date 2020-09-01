@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { environment } from "src/environments/environment";
+import { environment } from "../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -11,19 +11,19 @@ export class ContactsService {
     private http: HttpClient
   ) { }
 
-getContacts() {
-  return this.http.get(`${environment.apiUrl}/contacts`)
-}
+  getContacts() {
+    return this.http.get(`${environment.apiUrl}/contacts`)
+  }
 
-addContact(data) {
-  return this.http.post(`${environment.apiUrl}/contacts`, data);
-}
+  addContact(data) {
+    return this.http.post(`${environment.apiUrl}/contacts`, data);
+  }
 
-editContact(data) {
-  return this.http.put(`${environment.apiUrl}/contacts/${data.id}`, data);
-}
+  editContact(data) {
+    return this.http.put(`${environment.apiUrl}/contacts/${data.id}`, data);
+  }
 
-deleteContact(id) {
-  return this.http.delete(`${environment.apiUrl}/contacts/${id}`);
-}
+  deleteContact(id) {
+    return this.http.delete(`${environment.apiUrl}/contacts/${id}`);
+  }
 }

@@ -1,5 +1,3 @@
-export class Exports {}
-
 export const COUNTRIES = [
     { "name": "Afghanistan", "code": "AF" },
     { "name": "Aland Islands", "code": "AX" },
